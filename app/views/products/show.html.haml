@@ -1,2 +1,39 @@
-%h1 Products#show
-%p Find me in app/views/products/show.html.haml
+%p#notice= notice
+
+%p
+  %b Title:
+  = @product.title
+%p
+  %b Price:
+  = @product.price
+%p
+  %b Address:
+  = @product.address
+%p
+  %b City:
+  = @product.city
+%p
+  %b Rooms:
+  = @product.rooms
+%p
+  %b Living space:
+  = @product.living_space
+%p
+  %b Property size:
+  = @product.property_size
+%p
+  %b Description:
+  = @product.description
+%p
+  %b Build year:
+  = @product.build_year
+%p
+  %b Ownership form:
+  = @product.ownership_form
+%p
+  %b Upkeep:
+  = @product.upkeep
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', products_path

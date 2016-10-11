@@ -1,0 +1,2 @@
+json.extract! product, :id, :title, :price, :address, :city, :rooms, :living_space, :property_size, :description, :build_year, :ownership_form, :upkeep, :created_at, :updated_at
+json.url product_url(product, format: :json)
