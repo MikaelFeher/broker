@@ -1,39 +1,53 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @product.title
-%p
-  %b Price:
-  = @product.price
-%p
-  %b Address:
-  = @product.address
-%p
-  %b City:
-  = @product.city
-%p
-  %b Rooms:
-  = @product.rooms
-%p
-  %b Living space:
-  = @product.living_space
-%p
-  %b Property size:
-  = @product.property_size
-%p
-  %b Description:
-  = @product.description
-%p
-  %b Build year:
-  = @product.build_year
-%p
-  %b Ownership form:
-  = @product.ownership_form
-%p
-  %b Upkeep:
-  = @product.upkeep
+%div{style: 'width: 500px; height: 310px'}
+  = image_tag 'house.jpeg', {style: 'width 500px; height: 300px; margin: 5px'}
+  %div
+    %ul.btn-group
+      %li.btn.btn-default
+        = link_to 'Översikt', '#'
+      %li.btn.btn-default
+        = link_to 'Fakta', '#'
+      %li.btn.btn-default
+        = link_to 'Bilder', '#'
+      %li.btn.btn-default
+        = link_to 'Kalkyl', '#'
 
-= link_to 'Edit', edit_product_path(@product)
-\|
-= link_to 'Back', products_path
+  %div{style: 'margin-left:5px'}
+    %p
+      %b Title:
+      = @product.title
+    %p
+      %b Price:
+      = @product.price
+    %p
+      %b Address:
+      = @product.address
+    %p
+      %b City:
+      = @product.city
+    %p
+      %b Rooms:
+      = @product.rooms
+    %p
+      %b Living space:
+      = @product.living_space
+    %p
+      %b Property size:
+      = @product.property_size
+    %p
+      %b Description:
+      = @product.description
+    %p
+      %b Build year:
+      = @product.build_year
+    %p
+      %b Ownership form:
+      = @product.ownership_form
+    %p
+      %b Upkeep:
+      = @product.upkeep
+
+    = link_to 'Edit', edit_product_path(@product)
+
+    = link_to 'Back', products_path

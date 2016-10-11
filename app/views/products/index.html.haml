@@ -1,34 +1,21 @@
 %h1 Micke Mäklare
 %br
-%br
 %h2 Välkommen in!
 %br
 %h3 Ni kanske hittar ert nästa hus.
 %br
 %br
 %div
-  %table
-    %thead
-      %tr
-        %th Title
-        %th Price
-        %th City
-        %th Rooms
-        %th Living space
+  - @products.each do |product|
 
-
-    %tbody
-      - @products.each do |product|
-        %tr
-          %td= product.title
-          %td= product.price
-          %td= product.city
-          %td= product.rooms
-          %td= product.living_space
-          %td= link_to 'Show', product
-          %td= link_to 'Edit', edit_product_path(product)
-          %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+    %div.col-md-3
+      = image_tag 'house.jpeg'
+      %h3= link_to "#{product.title}, #{product.city}", product_path(product)
+      %h4= "#{product.price}kr"
+      %ul
+        %li= "Rum: #{product.rooms}"
+        %li= "Boarea: #{product.living_space}m2"
   %br
+
 
   = link_to 'New Product', new_product_path
