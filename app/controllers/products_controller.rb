@@ -15,16 +15,20 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   # GET /products/1/edit
   def edit
+    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   # POST /products
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.category_id = params[:category_id]
+    @product.city = @product.category.name
 
     respond_to do |format|
       if @product.save
@@ -40,6 +44,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    @product.category_id = params[:category_id]
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to root_path, notice: 'Product was successfully updated.' }
@@ -79,6 +84,7 @@ class ProductsController < ApplicationController
                                       :description,
                                       :build_year,
                                       :ownership_form,
-                                      :upkeep)
+                                      :upkeep,
+                                      :category_id)
     end
 end

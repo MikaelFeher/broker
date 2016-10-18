@@ -21,21 +21,21 @@
 /               = link_to 'Skurup', products_path(city:'Skurup')
 /             %li
 /               = link_to 'Beddingestrand', products_path(city: 'Beddingestrand')
-
-.row{style:'margin: 0px 10px;'}
-  - @products.each do |product|
-    .col-md-4
-      = image_tag 'house.jpeg', {style: 'border-radius: 3px;'}
-      %h4= link_to "#{product.title}, #{product.city}", product_path(product)
-      %h5= "#{number_to_currency(product.price, unit: '', precision: 0)} kr"
-      %ul{style:'list-style: none;'}
-        %li
-          %b Rum: 
-          = "#{product.rooms} rok"
-        %li 
-          %b Boarea: 
-          = "#{product.living_space} m2"
-        %li
-          %b Beskrivning: 
-          = "#{product.description}"
-      %br
+.row{style:'margin: 0px 7%;'}
+  - @products.in_groups_of(4, false).each do |item|
+    - item.each do |product|
+      .col-md-4
+        = image_tag 'house.jpeg', {style: 'border-radius: 3px;'}
+        %h4= link_to "#{product.title}, #{product.city}", product_path(product)
+        %h5= "#{number_to_currency(product.price, unit: '', precision: 0)} kr"
+        %ul{style:'list-style: none;'}
+          %li
+            %b Rum: 
+            = "#{product.rooms} rok"
+          %li 
+            %b Boarea: 
+            = "#{product.living_space} m2"
+          %li
+            %b Beskrivning: 
+            = "#{product.description}"
+        %br

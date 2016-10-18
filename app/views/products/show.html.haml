@@ -1,5 +1,7 @@
 %p#notice= notice
-
+%h1
+  = @product.title
+  
 %div{style: 'width: 500px; height: 310px'}
   = image_tag 'house.jpeg', {style: 'width 500px; height: 300px; margin: 5px'}
   %div
@@ -25,7 +27,7 @@
       = @product.address
     %p
       %b Ort:
-      = @product.city
+      = @product.category.name
     %p
       %b Rum:
       = "#{@product.rooms} rok"
