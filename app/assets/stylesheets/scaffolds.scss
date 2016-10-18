@@ -24,12 +24,13 @@ a {
   color: #fff;
 
   &:visited {
-    color: #666;
+    color: #fff;
   }
 
   &:hover {
     color: #fff;
     background-color: #000;
+    text-decoration: none;
   }
 }
 

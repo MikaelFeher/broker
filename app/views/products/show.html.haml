@@ -15,39 +15,46 @@
 
   %div{style: 'margin-left:5px'}
     %p
-      %b Title:
+      %b Titel:
       = @product.title
     %p
-      %b Price:
-      = @product.price
+      %b Utropspris:
+      = "#{number_to_currency(@product.price, unit: '', precision: 0)} kr"
     %p
-      %b Address:
+      %b Adress:
       = @product.address
     %p
-      %b City:
+      %b Ort:
       = @product.city
     %p
-      %b Rooms:
-      = @product.rooms
+      %b Rum:
+      = "#{@product.rooms} rok"
     %p
-      %b Living space:
-      = @product.living_space
+      %b Boyta:
+      = "#{@product.living_space} m2"
     %p
-      %b Property size:
-      = @product.property_size
+      %b Tomtarea:
+      = "#{@product.property_size} m2"
     %p
-      %b Description:
-      = @product.description
-    %p
-      %b Build year:
+      %b Byggår:
       = @product.build_year
     %p
-      %b Ownership form:
+      %b Upplåtelseform:
       = @product.ownership_form
     %p
-      %b Upkeep:
-      = @product.upkeep
+      %b Driftskostnad:
+      = "#{@product.upkeep} kr"
 
     = link_to 'Edit', edit_product_path(@product)
 
     = link_to 'Back', products_path
+
+    = link_to 'Delete', product_path(@product), method: :delete, data: {confirm:'Are you sure?'}
+  %br
+  %br
+  
+  %div{style: 'margin-left:5px'}
+    %p
+      %b Översikt:
+      = @product.description
+

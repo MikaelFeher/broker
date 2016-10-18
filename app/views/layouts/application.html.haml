@@ -4,8 +4,11 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Broker
     = csrf_meta_tags
+    = stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css', rel: 'stylesheet'
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  
   %body
     = render 'layouts/header'
     = yield
