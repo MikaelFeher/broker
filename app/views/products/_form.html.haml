@@ -6,7 +6,7 @@
         - @product.errors.full_messages.each do |msg|
           %li= msg
   
-  .field
+  .field.form-group
     = f.label :category_id,'Kommun'
     = select_tag (:category_id, options_for_select(@categories), prompt: 'Välj ort')
   .field
