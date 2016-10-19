@@ -1,4 +1,4 @@
-%h1 Uppdatera informationen
+%h2 Uppdatera informationen
 
 = form_for @product, :html => { :multipart => true } do |f|
   - if @product.errors.any?
@@ -9,6 +9,9 @@
           %li= msg
   
   .field
+    = f.label :category_id,'Kommun'
+    = f.select :category_id, @categories
+  .field
     = f.label :title, 'Titel'
     = f.text_field :title
   .field
@@ -18,11 +21,8 @@
     = f.label :address, 'Adress'
     = f.text_field :address
   .field
-    = f.label :category_id,'Ort'
-    = f.select :category_id, @categories
-  / .field
-  /   = f.label :city, 'Ort'
-  /   = f.text_field :city
+    = f.label :city, 'Ort'
+    = f.text_field :city
   .field
     = f.label :rooms, 'Rum'
     = f.number_field :rooms

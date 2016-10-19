@@ -7,6 +7,9 @@
           %li= msg
   
   .field
+    = f.label :category_id,'Kommun'
+    = select_tag (:category_id, options_for_select(@categories), prompt: 'Välj ort')
+  .field
     = f.label :title, 'Titel'
     = f.text_field :title
   .field
@@ -16,11 +19,8 @@
     = f.label :address, 'Adress'
     = f.text_field :address
   .field
-    = f.label :category_id,'Ort'
-    = select_tag (:category_id, options_for_select(@categories), prompt: 'Välj ort')
-  / .field
-  /   = f.label :city, 'Ort'
-  /   = f.text_field :city
+    = f.label :city, 'Ort'
+    = f.text_field :city
   .field
     = f.label :rooms, 'Rum'
     = f.number_field :rooms

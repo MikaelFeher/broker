@@ -1,41 +1,51 @@
 %p#notice= notice
 
-.jumbotron
+.jumbotron{style: 'height: 300px'}
   %h1 Micke Mäklare
-  %br
   %h2 Välkommen in!
-  %br
-  %h3 Ni kanske hittar ert nästa hus.
+  %h3 Ni kanske hittar ert nästa hus här.
   %br
   %br
 
+.container{style:'padding: 0px; margin: 0px'}
+  %h1{style: 'text-align:center'}
+    = params[:category]
+
+  #bs-example-navbar-collapse-1.collapse.navbar-collapse
+    %ul.nav.navbar-nav
+      %li.dropdown
+        %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Välj kommun
+          %span.caret
+            %ul.dropdown-menu
+              - Category.all.each do |category|
+                %li
+                  = link_to category.name, products_path(category: category.name)
+              
+ 
+  - if @products.count == 0
+    %h1{style: 'text-align:center'}
+      Vi har tyvärr inga objekt för närvarande till salu i #{params[:category]}
+    %br
+    %br
+    %br
+  - else
+    .container{style:'margin-left: 5%; padding: 0px'}
+      - @products.each do |product|
+        .col-md-3{style:'padding: 0px;margin-left: 0px'}
+          / .container{style:'background-color: red'}
+          = image_tag 'house.jpeg', {style: 'border-radius: 3px;'}
+          %div{style: ' width: auto; height:175px; padding: 0px; text-align: center'}
+            %h4= link_to "#{product.title}, #{product.city}", product_path(product)
+            %h5= "#{number_to_currency(product.price, unit: '', precision: 0)} kr"
+            %ul{style:'list-style: none; text-align: left'}
+              %li
+                %b Rum: 
+                = "#{product.rooms} rok"
+              %li 
+                %b Boarea: 
+                = "#{product.living_space} m2"
+              %li
+                %b Beskrivning: 
+                = "#{product.description}"
 = link_to 'New Product', new_product_path
-/ #bs-example-navbar-collapse-1.collapse.navbar-collapse
-/   %ul.nav.navbar-nav
-/     %li.dropdown
-/       %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-/         Kommun
-/         %span.caret
-/           %ul.dropdown-menu
-/             %li
-/               = link_to 'Skurup', products_path(city:'Skurup')
-/             %li
-/               = link_to 'Beddingestrand', products_path(city: 'Beddingestrand')
-.row{style:'margin: 0px 7%;'}
-  - @products.in_groups_of(4, false).each do |item|
-    - item.each do |product|
-      .col-md-4
-        = image_tag 'house.jpeg', {style: 'border-radius: 3px;'}
-        %h4= link_to "#{product.title}, #{product.city}", product_path(product)
-        %h5= "#{number_to_currency(product.price, unit: '', precision: 0)} kr"
-        %ul{style:'list-style: none;'}
-          %li
-            %b Rum: 
-            = "#{product.rooms} rok"
-          %li 
-            %b Boarea: 
-            = "#{product.living_space} m2"
-          %li
-            %b Beskrivning: 
-            = "#{product.description}"
-        %br

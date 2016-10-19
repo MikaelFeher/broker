@@ -4,7 +4,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all.order(created_at: :desc)    
+    if params[:category].blank?
+      @products = Product.all.order(created_at: :desc)
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @products = Product.where(category_id: @category_id).order(created_at: :desc)
+    end
   end
 
   # GET /products/1
@@ -28,8 +33,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.category_id = params[:category_id]
-    @product.city = @product.category.name
-
+    
     respond_to do |format|
       if @product.save
         format.html { redirect_to root_path, notice: 'Product was successfully created.' }
@@ -45,6 +49,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
     @product.category_id = params[:category_id]
+    
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to root_path, notice: 'Product was successfully updated.' }
