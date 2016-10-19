@@ -47,5 +47,5 @@
                 = "#{product.living_space} m2"
               %li
                 %b Beskrivning: 
-                = "#{product.description}"
+                = "#{product.description[0..100]}"
 = link_to 'New Product', new_product_path

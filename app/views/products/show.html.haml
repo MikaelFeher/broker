@@ -1,13 +1,21 @@
 %p#notice= notice
+
 %h1
   = @product.title
   
 %div{style: 'width: 500px; height: 310px'}
   = image_tag 'house.jpeg', {style: 'width 500px; height: 300px; margin: 5px'}
+ 
+  = link_to 'Edit', edit_product_path(@product)
+
+  = link_to 'Back', products_path
+
+  = link_to 'Delete', product_path(@product), method: :delete, data: {confirm:'Are you sure?'}
+ 
   %div
     %ul.btn-group
       %li.btn.btn-default
-        = link_to 'Översikt', '#'
+        = link_to 'Översikt', '#description'
       %li.btn.btn-default
         = link_to 'Fakta', '#'
       %li.btn.btn-default
@@ -47,15 +55,10 @@
       %b Driftskostnad:
       = "#{@product.upkeep} kr"
 
-    = link_to 'Edit', edit_product_path(@product)
-
-    = link_to 'Back', products_path
-
-    = link_to 'Delete', product_path(@product), method: :delete, data: {confirm:'Are you sure?'}
   %br
   %br
   
-  %div{style: 'margin-left:5px'}
+  #description{style: 'margin-left:5px'}
     %p
       %b Översikt:
       = @product.description
