@@ -4,14 +4,7 @@
   = @product.title
   
 %div{style: 'width: 500px; height: 310px'}
-  = image_tag 'house.jpeg', {style: 'width 500px; height: 300px; margin: 5px'}
- 
-  = link_to 'Edit', edit_product_path(@product)
-
-  = link_to 'Back', products_path
-
-  = link_to 'Delete', product_path(@product), method: :delete, data: {confirm:'Are you sure?'}
- 
+  = image_tag 'house.jpeg', {style: 'width 500px; height: 300px; margin: 5px'} 
   %div
     %ul.btn-group
       %li.btn.btn-default

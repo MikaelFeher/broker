@@ -1,6 +1,6 @@
 %p#notice= notice
 
-.jumbotron{style: 'height: 300px'}
+.jumbotron
   %h1 Micke Mäklare
   %h2 Välkommen in!
   %h3 Ni kanske hittar ert nästa hus här.
@@ -21,31 +21,5 @@
               - Category.all.each do |category|
                 %li
                   = link_to category.name, products_path(category: category.name)
-              
- 
-  - if @products.count == 0
-    %h1{style: 'text-align:center'}
-      Vi har tyvärr inga objekt för närvarande till salu i #{params[:category]}
-    %br
-    %br
-    %br
-  - else
-    .container{style:'margin-left: 5%; padding: 0px'}
-      - @products.each do |product|
-        .col-md-3{style:'padding: 0px;margin-left: 0px'}
-          / .container{style:'background-color: red'}
-          = image_tag 'house.jpeg', {style: 'border-radius: 3px;'}
-          %div{style: ' width: auto; height:175px; padding: 0px; text-align: center'}
-            %h4= link_to "#{product.title}, #{product.city}", product_path(product)
-            %h5= "#{number_to_currency(product.price, unit: '', precision: 0)} kr"
-            %ul{style:'list-style: none; text-align: left'}
-              %li
-                %b Rum: 
-                = "#{product.rooms} rok"
-              %li 
-                %b Boarea: 
-                = "#{product.living_space} m2"
-              %li
-                %b Beskrivning: 
-                = "#{product.description[0..100]}"
-= link_to 'New Product', new_product_path
+
+  = render 'houses'    
