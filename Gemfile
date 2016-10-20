@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'rails_admin', '~> 1.0'
 
 group :development, :test do
   gem 'pry'
