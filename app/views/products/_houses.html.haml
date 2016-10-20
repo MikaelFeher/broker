@@ -9,7 +9,7 @@
     - @products.each do |product|
       .col-md-3{style:'padding: 0px;margin-left: 0px'}
         / .container{style:'background-color: red'}
-        = image_tag 'house.jpeg', {style: 'border-radius: 3px;'}
+        = link_to image_tag('house.jpeg'), product_path(product)
         %div{style: ' width: auto; height:175px; padding: 0px; text-align: center'}
           %h4= link_to "#{product.title}, #{product.city}", product_path(product)
           %h5= "#{number_to_currency(product.price, unit: '', precision: 0)} kr"

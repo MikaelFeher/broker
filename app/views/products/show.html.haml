@@ -1,58 +1,78 @@
-.container{style: 'text-align: center;'}
-  %h1
-    = @product.title
-  .jumbotron#show
-.container{style: 'text-align: center;'}
-
-  %div
-    %ul.btn-group
-      %li.btn.btn-default
-        = link_to 'Översikt', '#description'
-      %li.btn.btn-default
-        = link_to 'Fakta', '#'
-      %li.btn.btn-default
-        = link_to 'Bilder', '#'
-      %li.btn.btn-default
-        = link_to 'Kalkyl', '#'
+%ul.btn-group{style: 'text-align: left; position: fixed;'}
+  %li.btn.btn-default
+    = link_to 'Översikt', '#description'
+  %li.btn.btn-default
+    = link_to 'Fakta', '#facts'
+  %li.btn.btn-default
+    = link_to 'Bilder', '#pictures'
+  %li.btn.btn-default
+    = link_to 'Kalkyl', '#'
+  %li.btn.btn-default
+    = link_to 'Till toppen', '#top'
+#top
+  .jumbotron#show{style: 'height: 350px;'}
+    %h1{style: 'text-align: center;'}
+      = @product.title
+  
 
 .container
+  #facts
   %div{style: 'margin-left:5px'}
     %p
-      %b Titel:
-      = @product.title
-    %p
-      %b Utropspris:
-      = "#{number_to_currency(@product.price, unit: '', precision: 0)} kr"
-    %p
-      %b Adress:
-      = @product.address
-    %p
-      %b Ort:
-      = @product.category.name
-    %p
-      %b Rum:
-      = "#{@product.rooms} rok"
-    %p
-      %b Boyta:
-      = "#{@product.living_space} m2"
-    %p
-      %b Tomtarea:
-      = "#{@product.property_size} m2"
-    %p
-      %b Byggår:
-      = @product.build_year
-    %p
-      %b Upplåtelseform:
-      = @product.ownership_form
-    %p
-      %b Driftskostnad:
-      = "#{@product.upkeep} kr"
+    %b Fakta:
+    %br
+    %br
+    .container
+      %p
+        %b Titel:
+        = @product.title
+      %p
+        %b Utropspris:
+        = "#{number_to_currency(@product.price, unit: '', precision: 0)} kr"
+      %p
+        %b Adress:
+        = @product.address
+      %p
+        %b Ort:
+        = @product.category.name
+      %p
+        %b Rum:
+        = "#{@product.rooms} rok"
+      %p
+        %b Boyta:
+        = "#{@product.living_space} m2"
+      %p
+        %b Tomtarea:
+        = "#{@product.property_size} m2"
+      %p
+        %b Byggår:
+        = @product.build_year
+      %p
+        %b Upplåtelseform:
+        = @product.ownership_form
+      %p
+        %b Driftskostnad:
+        = "#{@product.upkeep} kr"
 
   %br
   %br
-  
+.container  
   #description{style: 'margin-left:5px'}
-    %p
+    %h3
       %b Översikt:
+    %br
+    .container
       = @product.description
-
+    %br
+    %br
+.container  
+  #pictures{style: 'margin-left:5px'}
+    %h3
+      %b Bilder:
+    %br
+    .container{style: 'text-align: center;'}
+      - 5.times do
+        = image_tag 'jumbotron.jpeg',{style: 'height: 550px; width: auto'}
+        %br
+        %br
+        %br    
