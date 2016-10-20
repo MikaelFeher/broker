@@ -1,8 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.jumbotron {
-  background-image: url(./assets/images/jumbotron.jpg) center no-repeat;
+.jumbotron#index {
+
+  background: url('jumbotron_image.jpeg') center no-repeat;
   color: orange;
   text-align: center;
+  text-shadow: 1px 2px black;
+}
+.jumbotron#show {
+	background: url('jumbotron.jpg') center no-repeat;
+
 }

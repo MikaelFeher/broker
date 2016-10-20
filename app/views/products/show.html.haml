@@ -1,10 +1,9 @@
-%p#notice= notice
+.container{style: 'text-align: center;'}
+  %h1
+    = @product.title
+  .jumbotron#show
+.container{style: 'text-align: center;'}
 
-%h1
-  = @product.title
-  
-%div{style: 'width: 500px; height: 310px'}
-  = image_tag 'house.jpeg', {style: 'width 500px; height: 300px; margin: 5px'} 
   %div
     %ul.btn-group
       %li.btn.btn-default
@@ -16,6 +15,7 @@
       %li.btn.btn-default
         = link_to 'Kalkyl', '#'
 
+.container
   %div{style: 'margin-left:5px'}
     %p
       %b Titel:
