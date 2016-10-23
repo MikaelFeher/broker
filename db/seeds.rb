@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create(email: 'test@test.com', password: 'password')
+
+Category.create(name: 'Skurup')
+Category.create(name: 'Beddingestrand')
