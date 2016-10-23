@@ -1,19 +1,20 @@
-%ul.btn-group{style: 'text-align: left; position: fixed;'}
-  %li.btn.btn-default
-    = link_to 'Översikt', '#description'
-  %li.btn.btn-default
-    = link_to 'Fakta', '#facts'
-  %li.btn.btn-default
-    = link_to 'Bilder', '#pictures'
-  %li.btn.btn-default
-    = link_to 'Kalkyl', '#'
-  %li.btn.btn-default
-    = link_to 'Till toppen', '#top'
+.container
+  %ul.btn-group{style: 'text-align: center; position: fixed;'}
+    %li.btn.btn-default
+      = link_to 'Översikt', '#description'
+    %li.btn.btn-default
+      = link_to 'Fakta', '#facts'
+    %li.btn.btn-default
+      = link_to 'Bilder', '#pictures'
+    %li.btn.btn-default
+      = link_to 'Kalkyl', '#'
+    %li.btn.btn-default
+      = link_to 'Till toppen', '#top'
 #top
   .jumbotron#show{style: 'height: 350px;'}
     %h1{style: 'text-align: center;'}
       = @product.title
-  
+
 
 .container
   #facts
